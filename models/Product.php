@@ -3,21 +3,25 @@
 class Product
 {
 
-    const SHOW_BY_DEFAULT = 10;
+    const SHOW_BY_DEFAULT = 3;
 
     /**
      * Returns an array of products
      */
-    public static function getLatestProducts($count = self::SHOW_BY_DEFAULT)
+    public static function getLatestProducts($count = self::SHOW_BY_DEFAULT, $page = 1)
     {
         $count = intval($count);
+        $page = intval($page);
+        $offset = $page * $count;
+
         $db = Db::getConnection();
         $productsList = array();
 
         $result = $db->query('SELECT id, name, price, is_new FROM product '
             . 'WHERE status = "1"'
             . 'ORDER BY id DESC '
-            . 'LIMIT ' . $count);
+            . 'LIMIT ' . $count
+            . ' OFFSET ' . $offset);
 
         $i = 0;
         while ($row = $result->fetch()) {
@@ -34,16 +38,20 @@ class Product
     /**
      * Returns an array of products
      */
-    public static function getProductsListByCategory($categoryId = false)
+    public static function getProductsListByCategory($categoryId = false, $page = 1)
     {
         if ($categoryId) {
+
+            $page = intval($page);
+            $offset = ($page - 1) * self::SHOW_BY_DEFAULT;
 
             $db = Db::getConnection();
             $products = array();
             $result = $db->query("SELECT id, name, price, is_new FROM product "
                 . "WHERE status = '1' AND category_id = '$categoryId' "
-                . "ORDER BY id DESC "
-                . "LIMIT " . self::SHOW_BY_DEFAULT);
+                . "ORDER BY id ASC "
+                . "LIMIT " . self::SHOW_BY_DEFAULT
+                . ' OFFSET ' . $offset);
 
             $i = 0;
             while ($row = $result->fetch()) {
@@ -77,6 +85,21 @@ class Product
     }
 
     /**
+     * Returns total products
+     */
+    public static function getTotalProductsInCategory($categoryId)
+    {
+        $db = Db::getConnection();
+
+        $result = $db->query('SELECT count(id) AS count FROM product '
+            . 'WHERE status="1" AND category_id ="' . $categoryId . '"');
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $row = $result->fetch();
+
+        return $row['count'];
+    }
+
+    /**
      * Returns an array of recommended products
      */
     public static function getRecommendedProducts()
@@ -85,7 +108,7 @@ class Product
 
         $productsList = array();
 
-        $result = $db->query('SELECT id, name, price, is_new FROM product '
+        $result = $db->query('SELECT id, name, price, image, is_new FROM product '
             . 'WHERE status = "1" AND is_recommended = "1"'
             . 'ORDER BY id DESC ');
 
@@ -93,6 +116,7 @@ class Product
         while ($row = $result->fetch()) {
             $productsList[$i]['id'] = $row['id'];
             $productsList[$i]['name'] = $row['name'];
+            $productsList[$i]['image'] = $row['image'];
             $productsList[$i]['price'] = $row['price'];
             $productsList[$i]['is_new'] = $row['is_new'];
             $i++;
