@@ -3,18 +3,18 @@
 include_once ROOT . '/models/Category.php';
 include_once ROOT . '/models/Product.php';
 
-class ProductController
+class SiteController
 {
 
-    public function actionView($productId)
+    public function actionIndex()
     {
-
         $categories = array();
         $categories = Category::getCategoriesList();
-        
-        $product = Product::getProductById($productId);
 
-        require_once(ROOT . '/views/product/view.php');
+        $latestProducts = array();
+        $latestProducts = Product::getLatestProducts(6);
+        
+        require_once(ROOT . '/views/site/index.php');
 
         return true;
     }
