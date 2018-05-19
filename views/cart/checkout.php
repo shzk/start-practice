@@ -28,42 +28,44 @@
 
 
                     <?php if ($result): ?>
-
                         <p>Заказ оформлен. Мы Вам перезвоним.</p>
-
                     <?php else: ?>
 
-                        <p>Выбрано товаров: <?php echo $totalQuantity; ?>, на сумму: <?php echo $totalPrice; ?>, грн.</p><br/>
+                        <p>Выбрано товаров: <?php echo $totalQuantity; ?>, на сумму: <?php echo $totalPrice; ?>, $</p><br/>
 
-                        <div class="col-sm-4">
-                            <?php if (isset($errors) && is_array($errors)): ?>
-                                <ul>
-                                    <?php foreach ($errors as $error): ?>
-                                        <li> - <?php echo $error; ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
+                        <?php if (!$result): ?>                        
 
-                            <p>Для оформления заказа заполните форму. Наш менеджер свяжется с Вами.</p>
+                            <div class="col-sm-4">
+                                <?php if (isset($errors) && is_array($errors)): ?>
+                                    <ul>
+                                        <?php foreach ($errors as $error): ?>
+                                            <li> - <?php echo $error; ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
 
-                            <div class="login-form">
-                                <form action="#" method="post">
+                                <p>Для оформления заказа заполните форму. Наш менеджер свяжется с Вами.</p>
 
-                                    <p>Ваша имя</p>
-                                    <input type="text" name="userName" placeholder="" value="<?php echo $userName; ?>"/>
+                                <div class="login-form">
+                                    <form action="#" method="post">
 
-                                    <p>Номер телефона</p>
-                                    <input type="text" name="userPhone" placeholder="" value="<?php echo $userPhone; ?>"/>
+                                        <p>Ваша имя</p>
+                                        <input type="text" name="userName" placeholder="" value="<?php echo $userName; ?>"/>
 
-                                    <p>Комментарий к заказу</p>
-                                    <input type="text" name="userComment" placeholder="Сообщение" value="<?php echo $userComment; ?>"/>
+                                        <p>Номер телефона</p>
+                                        <input type="text" name="userPhone" placeholder="" value="<?php echo $userPhone; ?>"/>
 
-                                    <br/>
-                                    <br/>
-                                    <input type="submit" name="submit" class="btn btn-default" value="Оформить" />
-                                </form>
+                                        <p>Комментарий к заказу</p>
+                                        <input type="text" name="userComment" placeholder="Сообщение" value="<?php echo $userComment; ?>"/>
+
+                                        <br/>
+                                        <br/>
+                                        <input type="submit" name="submit" class="btn btn-default" value="Оформить" />
+                                    </form>
+                                </div>
                             </div>
-                        </div>
+
+                        <?php endif; ?>
 
                     <?php endif; ?>
 

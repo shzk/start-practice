@@ -32,7 +32,7 @@
                             <tr>
                                 <th>Код товара</th>
                                 <th>Название</th>
-                                <th>Стомость, грн</th>
+                                <th>Стомость, $</th>
                                 <th>Количество, шт</th>
                                 <th>Удалить</th>
                             </tr>
@@ -45,16 +45,16 @@
                                         </a>
                                     </td>
                                     <td><?php echo $product['price'];?></td>
-                                    <td><?php echo $productsInCart[$product['id']];?></td>                        
+                                    <td><?php echo $productsInCart[$product['id']];?></td> 
                                     <td>
-                                        <a class="btn btn-default checkout" href="/cart/delete/<?php echo $product['id'];?>">
+                                        <a href="/cart/delete/<?php echo $product['id'];?>">
                                             <i class="fa fa-times"></i>
                                         </a>
-                                    </td>                        
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                                 <tr>
-                                    <td colspan="4">Общая стоимость, грн:</td>
+                                    <td colspan="4">Общая стоимость, $:</td>
                                     <td><?php echo $totalPrice;?></td>
                                 </tr>
                             
