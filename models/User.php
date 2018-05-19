@@ -109,6 +109,17 @@ class User
         }
         return false;
     }
+    
+    /**
+     * Проверяет телефон: не меньше, чем 10 символов
+     */
+    public static function checkPhone($phone)
+    {
+        if (strlen($phone) >= 10) {
+            return true;
+        }
+        return false;
+    }
 
     /**
      * Проверяет имя: не меньше, чем 6 символов

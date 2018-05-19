@@ -1,4 +1,7 @@
-<footer id="footer"><!--Footer-->
+    <div class="page-buffer"></div>
+</div>
+
+<footer id="footer" class="page-footer"><!--Footer-->
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
@@ -12,6 +15,8 @@
 
 
 <script src="/template/js/jquery.js"></script>
+<script src="/template/js/jquery.cycle2.min.js"></script>
+<script src="/template/js/jquery.cycle2.carousel.min.js"></script>
 <script src="/template/js/bootstrap.min.js"></script>
 <script src="/template/js/jquery.scrollUp.min.js"></script>
 <script src="/template/js/price-range.js"></script>

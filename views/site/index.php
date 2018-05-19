@@ -38,7 +38,7 @@
                                                 <?php echo $product['name'];?>
                                             </a>
                                         </p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
+                                        <a href="#" class="btn btn-default add-to-cart" data-id="<?php echo $product['id']; ?>"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                     </div>
                                     <?php if ($product['is_new']): ?>
                                         <img src="/template/images/home/new.png" class="new" alt="" />
@@ -56,6 +56,12 @@
 
                     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
+                            <?php 
+                                // Д.З. Написать цикл для вывода товаров
+                            ?>
+                            
+                            
+                            <!-- html блок для одного товара active-->
                             <div class="item active">	
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
@@ -69,32 +75,12 @@
 
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/template/images/home/recommend2.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/template/images/home/recommend3.jpg" alt="" />
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>                                
                             </div>
+                            <!-- html блок для одного товара active-->
+                            
+                            
+                            <!-- html блок для одного товара -->
                             <div class="item">	
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
@@ -108,11 +94,17 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <!-- html блок для одного товара -->
+                            
+                            
+                            <!-- html блок для одного товара -->
+                            <div class="item">	
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="/template/images/home/recommend2.jpg" alt="" />
+                                                <img src="/template/images/home/recommend1.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
@@ -120,16 +112,21 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <!-- html блок для одного товара -->
+                            
+                            
+                            <!-- html блок для одного товара -->
+                            <div class="item">	
                                 <div class="col-sm-4">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="/template/images/home/recommend3.jpg" alt="" />
+                                                <img src="/template/images/home/recommend1.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
