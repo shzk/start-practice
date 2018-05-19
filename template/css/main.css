@@ -1455,7 +1455,7 @@ h2.title {
 
 
 .login-form form input, .signup-form form input {
-  background: #F0F0E9;
+  background: #ccc;
   border: medium none;
   color: #696763;
   display: block;
